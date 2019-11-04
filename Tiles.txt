@@ -1,0 +1,40 @@
+1	Go
+2	Mediterranean Ave.
+3	Community Chest
+4	Baltic Ave.
+5	Income Tax
+6	Reading Railroad
+7	Oriental Ave.
+8	Chance
+9	Vermont Ave.
+10	Connecticut Ave.
+11	In Jail/Just Visiting
+12	St. Charles Place
+13	Electric Company
+14	States Ave.
+15	Virginia Ave.
+16	Pennsylvania Railroad
+17	St. James Place
+18	Community Chest
+19	Tennessee Ave.
+20	New York Ave.
+21	Free Parking
+22	Kentucky Ave.
+23	Chance
+24	Indiana Ave.
+25	Illinois Ave.
+26	B. & O. Railroad
+27	Atlantic Ave.
+28	Ventnor Ave.
+29	Water Works
+30	Marvin Gardens
+31	Go To Jail
+32	Pacific Ave.
+33	North Carolina Ave.
+34	Community Chest
+35	Pennsylvania Ave.
+36	Short Line Railroad
+37	Chance
+38	Park Place
+39	Luxury Tax
+40	Boardwalk
