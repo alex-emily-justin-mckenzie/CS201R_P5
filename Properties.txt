@@ -1,0 +1,29 @@
+Name	Position	Price		Rent	1h	2h	3h	4h	H	Mortgage	Group
+Mediterranean Ave.	2	60	50	2	10	30	90	160	250	30	Purple
+Baltic Ave.	4	60	50	4	20	60	180	320	450	30	Purple
+Oriental Ave.	7	100	50	6	30	90	270	400	550	50	Light-Blue
+Vermont Ave.	9	100	50	6	30	90	270	400	550	50	Light-Blue
+Connecticut Ave.	10	120	50	8	40	100	300	450	600	60	Light-Blue
+St. Charles Place	12	140	100	10	50	150	450	625	750	70	Violet
+States Ave.	14	140	100	10	50	150	450	625	750	70	Violet
+Virginia Ave.	15	160	100	12	60	180	500	700	900	80	Violet
+St. James Place	17	180	100	14	70	200	550	750	950	90	Orange
+Tennessee Ave.	19	180	100	14	70	200	550	750	950	90	Orange
+New York Ave.	20	200	100	16	80	220	600	800	1000	100	Orange
+Kentucky Ave.	22	220	150	18	90	250	700	875	1050	110	Red
+Indiana Ave.	24	220	150	18	90	250	700	875	1050	110	Red
+Illinois Ave.	25	240	150	20	100	300	750	925	1100	120	Red
+Atlantic Ave.	27	260	150	22	110	330	800	975	1150	130	Yellow
+Ventnor Ave.	28	260	150	22	110	330	800	975	1150	130	Yellow
+Marvin Gardens	30	280	150	24	120	360	850	1025	1200	140	Yellow
+Pacific Ave.	32	300	200	26	130	390	900	1100	1275	150	Green
+North Carolina Ave.	33	300	200	26	130	390	900	1100	1275	150	Green
+Pennsylvania Ave.	35	320	200	28	150	450	1000	1200	1400	160	Green
+Park Place	38	350	200	35	175	500	1100	1300	1500	175	Dark-Blue
+Boardwalk	40	400	200	50	200	600	1400	1700	2000	200	Dark-Blue
+Electric Company	13	150		*						75	Utilities
+Water Works	29	150		*						75	Utilities
+Reading Railroad	6	200		**						100	Railroad
+Pennsylvania Railroad	16	200		**						100	Railroad
+B. & O. Railroad	26	200		**						100	Railroad
+Short Line Railroad	36	200		**						100	Railroad

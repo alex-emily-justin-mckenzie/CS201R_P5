@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\j1mrh02\McKenzie\CS201\CS201R_P5\monopoly\main.cpp(30,69): warning C4101: 'hotel': unreferenced local variable
+  monopoly.vcxproj -> C:\Users\j1mrh02\McKenzie\CS201\CS201R_P5\x64\Debug\monopoly.exe
