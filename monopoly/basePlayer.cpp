@@ -23,17 +23,17 @@ int basePlayer::diceRoll()
 	return diceTotal;
 }
 
-void basePlayer::buyProperty(class property location)
+void basePlayer::buyProperty(Property propName)
 { 
 	//check to see if anyone owns the property so player can buy or not
-	if (location.getIfOwned() == false)
+	if (propName.getIfOwned() == false)
 	{
 		char tempChoice;
 		cout << "Property currently has no owner!" << endl;
-		cout << "Cost to buy property on current tile: " << location.getHouseCost() << endl;
+		cout << "Cost to buy property on current tile: " << propName.getHouseCost() << endl;
 
 		//check to make sure player has enough money to buy the property.
-		if (money < location.getHouseCost())
+		if (money < propName.getHouseCost())
 		{
 			cout << "You do not have enough money to afford this house. I smell broke?" << endl;
 		}
@@ -42,8 +42,8 @@ void basePlayer::buyProperty(class property location)
 		cin >> tempChoice;
 		if (tempChoice == 'y' || tempChoice == 'Y')
 		{
-			cout << "Congratulations on your new property: " << location.getLocationName() << endl;
-			money -= location.getHouseCost();
+			cout << "Congratulations on your new property: " << propName.getLocationName() << endl;
+			money -= propName.getHouseCost();
 		}
 		if (tempChoice == 'n' || tempChoice == 'N')
 		{

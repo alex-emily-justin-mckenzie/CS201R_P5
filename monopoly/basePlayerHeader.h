@@ -1,5 +1,6 @@
 #pragma once
 #include "baseLocationHeader.h"
+#include "Property.h"
 #include <string>
 #include <iostream>
 #include <ctime>
@@ -18,7 +19,7 @@ public:
 	int getPlayerMoney() { return money; }
 
 	int diceRoll();//roll 2 dice for current player
-	void buyProperty(class property);//purchase a house for current tile player is one
+	void buyProperty(Property propName);//purchase a house for current tile player is one
 	void playerMove();//move player position on board
 	void checkBalance();//check current player's balance
 	bool goToJail() { inJail = true; }//send player to jail
