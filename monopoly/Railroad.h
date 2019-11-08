@@ -10,6 +10,7 @@ public:
 	Railroad(string name, int price) {
 		tileName = name;
 		this->price = price;
+		type = "Railroad";
 	};
 	int GetPrice() { return price; };
 	int CalculateRent(int numRROwned);

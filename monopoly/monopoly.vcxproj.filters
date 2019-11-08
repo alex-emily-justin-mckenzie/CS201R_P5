@@ -39,6 +39,12 @@
     <ClCompile Include="CommunityChest.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="basePlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Property.h">
@@ -60,6 +66,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CommunityChest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="basePlayerHeader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bank.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

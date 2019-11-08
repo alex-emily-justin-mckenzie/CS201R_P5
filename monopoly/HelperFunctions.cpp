@@ -1,4 +1,5 @@
 #include "HelperFunctions.h"
+#include "basePlayerHeader.h"
 #include <fstream>
 #include <string>
 #include <sstream>
@@ -7,6 +8,7 @@
 #include "Railroad.h"
 #include "Chance.h"
 #include "CommunityChest.h"
+#include <queue>
 
 
 using namespace std;
@@ -27,18 +29,20 @@ vector<Location*> loadBoard() {
 
 			if (type == "Property") {
 				string name, group;
-				string sPrice, sRent, sHouseCost1, sHouseCost2, sHouseCost3, sHouseCost4, sHotelCost, sMortgage;
-				int price, rent, houseCost1, houseCost2, houseCost3, houseCost4, hotelCost, mortgage;
+				string sPrice, sRent, sHouse1Rent, sHouse2Rent, sHouse3Rent, sHouse4Rent, sHotelRent, sHouseCost, sMortgage;
+				int price, rent, house1Rent, house2Rent, house3Rent, house4Rent, hotelRent, houseCost, mortgage;
 
 				getline(tempString, name, ',');
 				getline(tempString, sPrice, ',');
 				getline(tempString, sRent, ',');
-				getline(tempString, sHouseCost1, ',');
-				getline(tempString, sHouseCost2, ',');
-				getline(tempString, sHouseCost3, ',');
-				getline(tempString, sHouseCost4, ',');
-				getline(tempString, sHotelCost, ',');
+				getline(tempString, sHouse1Rent, ',');
+				getline(tempString, sHouse2Rent, ',');
+				getline(tempString, sHouse3Rent, ',');
+				getline(tempString, sHouse4Rent, ',');
+				getline(tempString, sHotelRent, ',');
+				getline(tempString, sHotelRent, ',');
 				getline(tempString, sMortgage, ',');
+				getline(tempString, sHouseCost, ',');
 				getline(tempString, group);
 
 				// works for now but could be cleaned up
@@ -48,23 +52,30 @@ vector<Location*> loadBoard() {
 				getInt.str(sRent);
 				getInt >> rent;
 				getInt.clear();
-				getInt.str(sHouseCost1);
-				getInt >> houseCost1;
+				getInt.str(sHouse1Rent);
+				getInt >> house1Rent;
 				getInt.clear();
-				getInt.str(sHouseCost2);
-				getInt >> houseCost2;
+				getInt.str(sHouse2Rent);
+				getInt >> house2Rent;
 				getInt.clear();
-				getInt.str(sHouseCost3);
-				getInt >> houseCost3;
+				getInt.str(sHouse3Rent);
+				getInt >> house3Rent;
 				getInt.clear();
-				getInt.str(sHouseCost4);
-				getInt >> houseCost4;
+				getInt.str(sHouse4Rent);
+				getInt >> house4Rent;
+				getInt.clear();
+				getInt.str(sHotelRent);
+				getInt >> hotelRent;
+				getInt.clear();
+				getInt.str(sHouseCost);
+				getInt >> houseCost;
 				getInt.clear();
 				getInt.str(sMortgage);
 				getInt >> mortgage;
 				getInt.clear();
 
-				Property* newProperty = new Property(name, price, rent);
+				PropertyRent newPropRent(rent, house1Rent, house2Rent, house3Rent, house4Rent, hotelRent);
+				Property* newProperty = new Property(name, price, houseCost, newPropRent, mortgage, group);
 
 				boardLocations.push_back(newProperty);
 			}
@@ -123,4 +134,24 @@ vector<Location*> loadBoard() {
 
 	return boardLocations;
 
+}
+
+
+// set up a queue of players, ask how many and their names, give them starting money
+
+queue<player*> initializePlayers() {
+	queue<player*> players;
+	int numPlayers;
+	string tempName;
+	cout << "How many players?" << endl;
+	cin >> numPlayers;
+
+	for (int i = 0; i < numPlayers; ++i) {
+		cout << "What is the name of Player " << i + 1 << endl;
+		cin >> tempName;
+		// Error handling here?
+		player* newPlayer = new player(tempName);
+		players.push(newPlayer); // will need to rethink if we want to order the queue based on initial dice roll
+	}
+	return players;
 }
