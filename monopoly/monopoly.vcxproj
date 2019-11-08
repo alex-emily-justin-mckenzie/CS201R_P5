@@ -150,6 +150,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bank.cpp" />
+    <ClCompile Include="basePlayer.cpp" />
     <ClCompile Include="Chance.cpp" />
     <ClCompile Include="CommunityChest.cpp" />
     <ClCompile Include="HelperFunctions.cpp" />
@@ -162,6 +164,8 @@
     <ClCompile Include="Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bank.h" />
+    <ClInclude Include="basePlayerHeader.h" />
     <ClInclude Include="Chance.h" />
     <ClInclude Include="CommunityChest.h" />
     <ClInclude Include="HelperFunctions.h" />

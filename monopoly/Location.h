@@ -9,6 +9,7 @@ class Location {
 
 protected:
 	string tileName;
+	string type;
 	// string tileLocation;
 	//int numLocation;
 	//int basePrice;
@@ -20,22 +21,8 @@ protected:
 
 public:
 	Location();
-	Location(string tileName);
-	//Setters + Getters
+	Location(string tileName, string type);
 	string getTileName() { return tileName; }
-	//string getLocationName() { return tileLocation; }
-	//int getBasePrice() { return basePrice; }
-	//int getHotels() { return numHotels; }
-	//int getRent() { return baseRent; }
-	//int getHouseCost() { return houseCost; }
-	//string getOwnerName() { return ownerName; }
-	//bool getIfOwned() {return propertyOwned;}
-
-	void setLocationName(string tName) { tileName = tName; }
-	//void setBasePrice(int bPrice) { basePrice = bPrice; }
-	//void setRent(int tRent) { baseRent = tRent; }
-	//void setHouseCost(int tCost) { houseCost = tCost; }
-	//void setOwner(string tOwner) {ownerName = tOwner;}
-
+	string getType() { return type; }
 
 };
