@@ -30,28 +30,47 @@ int Player::die_roll() {
 	die_Value = (rand() % 6 + 1);//random number in range 1 to 6
 	return die_Value;
 }
-void Player::takeTurn() {
+void Player::takeTurn(const vector<Location*> board) {
 	bool isDoubles = false;
 	int userChoice;
 	do {
-		cout << "Options:" << endl
-			<< "1. Roll dice" << endl
-			<< "2. Display property" << endl
-			<< "3. Buy houses" << endl;
-		cout << "Select an option (1-3): ";
-		cin >> userChoice;
-		if (userChoice == 1) { //roll dice
-			int die1 = die_roll();
-			int die2 = die_roll();
-			if (die1 == die2) { isDoubles = true; }
-			int totalRoll = die1 + die2;
-			cout << "You rolled: " << die1 << " and " << die2 << endl
-				<< "Move " << totalRoll << " spaces" << endl;
-			cout << "You landed on "; //time to add locations
-			cout << endl;
+
+		int die1 = die_roll();
+		int die2 = die_roll();
+		if (die1 == die2) { isDoubles = true; }
+		int totalRoll = die1 + die2;
+		cout << "You rolled: " << die1 << " and " << die2 << endl
+			<< "Move " << totalRoll << " spaces" << endl;
+		int newLocation = currentLocation + totalRoll;
+		if (newLocation > 39) {
+			newLocation -= 39;
 		}
-		else if (userChoice == 2) { /*display property*/ }
-		else if (userChoice == 3) { /*buy houses*/ }
-		else {}
+
+		Location* currentTile = board.at(newLocation);
+
+		cout << "You landed on " << currentTile->getTileName(); // need a print tile method
+		cout << endl;
+
+		if (currentTile->getType() == "Property") {
+			// check if owned already
+			// if owned then they have to pay rent
+			// ask if they want to buy it
+			// if they own it ask if they want to add a house/hotel 
+		}
+		else if (currentTile->getType() == "Railroad") {
+			// check if owned already
+			// if owned then they have to pay rent accordingly
+			// if not owned ask if they want to buy it
+		}
+		else if (currentTile->getType() == "Utilities") {
+			// same as above
+		}
+		else if (currentTile->getType() == "Special") {
+			// based on newLocation number, can implement special directions for jail, etc.
+		}
+		else {
+			cout << "Free Space" << endl;
+		}
+
 	} while (isDoubles);
 }
