@@ -1,5 +1,5 @@
 #pragma once
-#include "Bank.h"
+// #include "Bank.h"
 #include <string>
 #include <vector>
 #include "Location.h"
@@ -14,7 +14,7 @@ private:
 	int money;
 	bool inJail = false;
 	vector<Location*> ownedProperties;
-	Location* currentLocation;
+	int currentLocation;
 	int die_roll();
 
 
@@ -36,7 +36,7 @@ public:
 	Player();
 	string getName() const;
 	void setName(string playerName);
-	Bank playerBank;
-	void takeTurn();
+	// Bank playerBank;
+	void takeTurn(vector<Location*> board);
 
 };
