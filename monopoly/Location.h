@@ -21,6 +21,7 @@ protected:
 
 public:
 	Location();
+	virtual ~Location();
 	Location(string tileName, string type);
 	string getTileName() { return tileName; }
 	string getType() { return type; }

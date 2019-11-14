@@ -19,4 +19,5 @@ Property::Property(string name, int price, int housePrice, PropertyRent rentLeve
 	this->housePrice = housePrice;
 	type = "Property";
 	this->group = group;
+	tileOwner = "none";
 }

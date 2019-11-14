@@ -139,8 +139,8 @@ vector<Location*> loadBoard() {
 
 // set up a queue of players, ask how many and their names, give them starting money
 
-queue<Player*> initializePlayers() {
-	queue<Player*> players;
+vector<Player*> initializePlayers() {
+	vector<Player*> players;
 	int numPlayers;
 	string playerName;
 	cout << "Welcome to Monopoly!" << endl;
@@ -153,7 +153,7 @@ queue<Player*> initializePlayers() {
 		cout << "Enter Player " << i + 1 << "'s name: ";
 		getline(cin, playerName);
 		Player* newPlayer = new Player(playerName);
-		players.push(newPlayer); // will need to rethink if we want to order the queue based on initial dice roll
+		players.push_back(newPlayer); // will need to rethink if we want to order the queue based on initial dice roll
 	}
 	cout << endl;
 
@@ -161,15 +161,13 @@ queue<Player*> initializePlayers() {
 
 }
 
-bool bankrupt(queue<Player*> players, int numPlayers) {
+bool bankrupt(vector<Player*> players, int numPlayers) {
+
 	int numBankrupt = 0;
 	for (unsigned int i = 0; i < players.size(); ++i) {
-		Player* currentPlayer = players.front();
-		players.pop();
-		if (currentPlayer->getPlayerMoney() == 0) {
+		if (players.at(i)->getPlayerMoney() == 0) {
 			numBankrupt += 1;
 		}
-		players.push(currentPlayer);
 	}
 	if (numBankrupt >= numPlayers - 1) { return true; }
 	else { return false; }

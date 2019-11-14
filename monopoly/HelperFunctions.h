@@ -7,6 +7,6 @@
 
 vector<Location*> loadBoard();
 
-queue<Player*> initializePlayers();
+vector<Player*> initializePlayers();
 
-bool bankrupt(queue<Player*> players, int numPlayers);
+bool bankrupt(vector<Player*> players, int numPlayers);
