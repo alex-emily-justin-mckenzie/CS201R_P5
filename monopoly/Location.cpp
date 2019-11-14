@@ -5,6 +5,10 @@ Location::Location(string tileName, string type) {
 	this->type = type;
 }
 
+Location::~Location() {
+	
+}
+
 
 Location::Location() {
 	tileName = "none";

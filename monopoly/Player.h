@@ -1,5 +1,4 @@
 #pragma once
-// #include "Bank.h"
 #include <string>
 #include <vector>
 #include "Location.h"
@@ -37,6 +36,9 @@ public:
 	string getName() const;
 	void setName(string playerName);
 	// Bank playerBank;
-	void takeTurn(vector<Location*> board);
+	void takeTurn(vector<Location*> board, vector<Player*> players);
+	void decrementMoney(int decrementValue);
+	void incrementMoney(int incrementValue);
+	void addProperty(Location* newTile);
 
 };

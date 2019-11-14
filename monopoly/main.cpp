@@ -18,38 +18,28 @@ Monopoly Rules:
 */
 int main() {
 	vector<Location*> board;
-	queue<Player*> players; 
+	vector<Player*> players; 
 	Player* currentPlayer;
+	int turnNum = 0;
 
 	players = initializePlayers();
+	int numPlayers = players.size();
 	board = loadBoard();
 
 	srand(time(0));
 
-	Bank currBank(players);
-	//players.front()->setName("newName");
-
-	//for (int i = 0; i < players.size(); ++i) {
-	//	currentPlayer = players.front();
-	//	cout << currentPlayer->getName() << endl;
-	//	players.pop();
-	//	players.push(currentPlayer);
-
-	//}
-	//currBank.PrintPlayers();
-
 	//turn
-	//while (!bankrupt(players, players.size())) { //run until only 1 player has bank $
-	//	currentPlayer = players.front();
-	//	players.pop();
-	//	cout << currentPlayer->getName() << "'s turn" << endl;
-	//	currentPlayer->checkBalance();
-	//	currentPlayer->takeTurn();
+	while (!bankrupt(players, players.size())) { //run until only 1 player has bank $
+		currentPlayer = players.at(turnNum);
+		cout << currentPlayer->getName() << "'s turn" << endl;
+		currentPlayer->checkBalance();
 
-	//	players.push(currentPlayer);
 
-	//	// turnNum += (turnNum == numPlayers - 1) ? (1 - numPlayers) : 1;
-	//}
+		currentPlayer->takeTurn(board, players);
+
+		turnNum += (turnNum == numPlayers - 1) ? (1 - numPlayers) : 1;
+
+	}
 	
 
 	return 0;

@@ -34,6 +34,7 @@ private:
 	PropertyRent rentLevels;
 	int currentRent;
 	string group;
+	string tileOwner;
 
 
 	// Don't want the tiles to have information about the players like number of houses they own or even who owns the property
@@ -51,6 +52,7 @@ public:
 	// Don't really need setters since tiles don't change throughout the game. Only need constructor
 	void setLocationName(string tName) { tileName = tName; }
 	void setBasePrice(int bPrice) { basePrice = bPrice; }
-
+	string getOwnerName() { return tileOwner; };
+	int getCurrentRent() { return currentRent; };
 
 };
