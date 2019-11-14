@@ -7,28 +7,32 @@
 #include "Location.h"
 #include "Start.h"
 using namespace std;
-bool bankrupt(vector<Player> players, int numPlayers);
+bool bankrupt(vector<Player*> players, int numPlayers);
 int main() {
 	int numPlayers;
 	int turnNum = 0;
-	vector<Player> players = initializePlayers(numPlayers, turnNum);
-	map<int, Location> GameBoard = loadBoard();
+	vector<Player*> players = initializePlayers(numPlayers, turnNum);
+	map<int, Location*> GameBoard = loadBoard();
 	
-	//turn
-	while(!bankrupt(players, numPlayers)) { //run until only 1 player has bank $
-		cout << players.at(turnNum).getName() << "'s turn" << endl;
-		cout << players.at(turnNum).getName() << " balance: $ "
-			<< players.at(turnNum).playerBank.getBalance() << endl;
+	//for (auto& x:GameBoard) {
+	//	cout << x.first << " " << x.second->getName()<< endl;
+	//}
 
-		players.at(turnNum).takeTurn(GameBoard);
+	// turn
+	while(!bankrupt(players, numPlayers)) { //run until only 1 player has bank $
+		cout << players.at(turnNum)->getName() << "'s turn" << endl;
+		cout << players.at(turnNum)->getName() << " balance: $ "
+			<< players.at(turnNum)->playerBank.getBalance() << endl;
+
+		players.at(turnNum)->takeTurn(GameBoard, players);
 		
 		turnNum += (turnNum == numPlayers - 1) ? (1 - numPlayers) : 1;
 	}
 }
-bool bankrupt(vector<Player> players, int numPlayers) {
+bool bankrupt(vector<Player*> players, int numPlayers) {
 	int numBankrupt = 0;
 	for (unsigned int i = 0; i < players.size(); ++i) {
-		if (!players.at(i).playerBank.getBalance()) {
+		if (!players.at(i)->playerBank.getBalance()) {
 			numBankrupt += 1;
 		}
 	}

@@ -150,29 +150,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Bank.cpp" />
-    <ClCompile Include="basePlayer.cpp" />
-    <ClCompile Include="Chance.cpp" />
-    <ClCompile Include="CommunityChest.cpp" />
-    <ClCompile Include="HelperFunctions.cpp" />
-    <ClCompile Include="Location.cpp" />
-    <ClCompile Include="main.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="Property.cpp" />
-    <ClCompile Include="Railroad.cpp" />
-    <ClCompile Include="Utilities.cpp" />
+    <ClCompile Include="..\Bank.cpp" />
+    <ClCompile Include="..\Location.cpp" />
+    <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\Player.cpp" />
+    <ClCompile Include="..\Start.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bank.h" />
-    <ClInclude Include="basePlayerHeader.h" />
-    <ClInclude Include="Chance.h" />
-    <ClInclude Include="CommunityChest.h" />
-    <ClInclude Include="HelperFunctions.h" />
-    <ClInclude Include="Location.h" />
-    <ClInclude Include="Property.h" />
-    <ClInclude Include="Railroad.h" />
-    <ClInclude Include="Utilities.h" />
+    <ClInclude Include="..\Bank.h" />
+    <ClInclude Include="..\Location.h" />
+    <ClInclude Include="..\Player.h" />
+    <ClInclude Include="..\Start.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

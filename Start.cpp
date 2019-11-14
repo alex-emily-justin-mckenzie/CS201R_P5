@@ -1,38 +1,145 @@
 #include "Start.h"
+#include <string>
 #include <vector>
 #include <map>
 #include <ctime>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include "Player.h"
 #include "Location.h"
 using namespace std;
 
-map<int, Location> loadBoard() {
-	map<int, Location> board;
+map<int, Location*> loadBoard() {
+	map<int, Location*> board;
 	ifstream tileRead;
 	string tileName, tileType;
 	int tileNum;
 
-	tileRead.open("Tiles.txt");
+	tileRead.open("tiles.csv");
 	if (!tileRead) {
 		cout << "Unable to open file";
 		exit(1); // terminate with error
 	}
 	while(!tileRead.eof()) {
-		tileRead >> tileNum;
-		tileRead.ignore();
-		getline(tileRead, tileName, '\t');
-		getline(tileRead, tileType);
-		Location currentTile(tileName, tileType);
-		board.emplace(tileNum, currentTile);
+		string temp, type, name, group, temptileNum;
+		getline(tileRead, temp);
+		istringstream tempString(temp);
+
+		getline(tempString, temptileNum, ',');
+		stringstream getInt(temptileNum);
+		getInt >> tileNum;
+		getInt.clear();
+		getline(tempString, name, ',');
+		getline(tempString, type, ',');
+
+
+		if (type == "Regular") {
+			string sPrice, sRent, sHouse1Rent, sHouse2Rent, sHouse3Rent, sHouse4Rent, sHotelRent, sHouseCost, sMortgage;
+			int price, rent, house1Rent, house2Rent, house3Rent, house4Rent, hotelRent, houseCost, mortgage;
+
+			getline(tempString, sPrice, ',');
+			getline(tempString, sRent, ',');
+			getline(tempString, sHouse1Rent, ',');
+			getline(tempString, sHouse2Rent, ',');
+			getline(tempString, sHouse3Rent, ',');
+			getline(tempString, sHouse4Rent, ',');
+			getline(tempString, sHotelRent, ',');
+			getline(tempString, sHotelRent, ',');
+			getline(tempString, sMortgage, ',');
+			getline(tempString, sHouseCost, ',');
+			getline(tempString, group);
+
+			// works for now but could be cleaned up
+			stringstream getInt(sPrice);
+			getInt >> price;
+			getInt.clear();
+			getInt.str(sRent);
+			getInt >> rent;
+			getInt.clear();
+			getInt.str(sHouse1Rent);
+			getInt >> house1Rent;
+			getInt.clear();
+			getInt.str(sHouse2Rent);
+			getInt >> house2Rent;
+			getInt.clear();
+			getInt.str(sHouse3Rent);
+			getInt >> house3Rent;
+			getInt.clear();
+			getInt.str(sHouse4Rent);
+			getInt >> house4Rent;
+			getInt.clear();
+			getInt.str(sHotelRent);
+			getInt >> hotelRent;
+			getInt.clear();
+			getInt.str(sHouseCost);
+			getInt >> houseCost;
+			getInt.clear();
+			getInt.str(sMortgage);
+			getInt >> mortgage;
+			getInt.clear();
+
+
+			Regular* currentTile = new Regular(name, rent, house1Rent, house2Rent, house3Rent, house4Rent, hotelRent, houseCost, group);
+
+			board.emplace(tileNum, currentTile);
+
+		}
+
+
+
+		else if (type == "Utility") {
+			string sPrice;
+			int price;
+
+			getline(tempString, sPrice, ',');
+
+			stringstream getInt(sPrice);
+			getInt >> price;
+			getInt.clear();
+
+			Utility* currentTile = new Utility(name, price);
+
+			board.emplace(tileNum, currentTile);
+		}
+
+		else if (type == "Railroad") {
+			string sPrice;
+			int price;
+
+			getline(tempString, sPrice, ',');
+
+			stringstream getInt(sPrice);
+			getInt >> price;
+			getInt.clear();
+
+			Railroad* newRailroad = new Railroad(name);
+
+			board.emplace(tileNum, newRailroad);
+		}
+
+		else if (type == "Corner") {
+			Corner* currentTile = new Corner(name);
+			board.emplace(tileNum, currentTile);
+		}
+
+		else if (type == "ChanceCC") {
+			ChanceCC* currentTile = new ChanceCC(name);
+			board.emplace(tileNum, currentTile);
+		}
+		else if (type == "Tax") {
+			Tax* currentTile = new Tax(name);
+			board.emplace(tileNum, currentTile);
+		}
 	}
+
 	tileRead.close();
 	return board;
 }
-vector<Player> initializePlayers(int& numPlayers, int& turnNum) {
-	vector<Player> players;
-	Player currentPlayer;
+
+vector<Player*> initializePlayers(int& numPlayers, int& turnNum) {
+	vector<Player*> players;
+	Player* currentPlayer = nullptr;
 	string playerName;
 	srand(time(0));
 	cout << "Welcome to Monopoly!" << endl;
@@ -43,7 +150,7 @@ vector<Player> initializePlayers(int& numPlayers, int& turnNum) {
 	for (int i = 0; i < numPlayers; ++i) {
 		cout << "Enter Player " << i + 1 << "'s name: ";
 		getline(cin, playerName);
-		currentPlayer.setName(playerName);
+		currentPlayer = new Player(playerName);
 		players.push_back(currentPlayer);
 	}
 	cout << endl;

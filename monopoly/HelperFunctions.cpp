@@ -1,13 +1,14 @@
 #include "HelperFunctions.h"
-#include "basePlayerHeader.h"
+#include "Location.h"
+// #include "basePlayerHeader.h"
 #include <fstream>
 #include <string>
 #include <sstream>
-#include "Property.h"
-#include "Utilities.h"
-#include "Railroad.h"
-#include "Chance.h"
-#include "CommunityChest.h"
+//#include "Property.h"
+//#include "Utilities.h"
+//#include "Railroad.h"
+//#include "Chance.h"
+//#include "CommunityChest.h"
 #include <queue>
 
 
