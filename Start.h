@@ -10,4 +10,4 @@
 using namespace std;
 
 vector<Player*> initializePlayers(int& numPlayers, int& turnNum);
-map<int, Location*> loadBoard();
+vector<Location*> loadBoard();

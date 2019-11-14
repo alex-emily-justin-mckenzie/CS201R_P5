@@ -1,4 +1,7 @@
-﻿  Player.cpp
+﻿  Bank.cpp
+  Player.cpp
+  Start.cpp
   main.cpp
   Generating Code...
+C:\Users\j1mrh02\McKenzie\CS201\CS201R_P5\Start.cpp(144,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   monopoly.vcxproj -> C:\Users\j1mrh02\McKenzie\CS201\CS201R_P5\x64\Debug\monopoly.exe

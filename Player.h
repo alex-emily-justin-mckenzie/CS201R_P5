@@ -14,7 +14,7 @@ public:
 	int getCurrentLocation() const;
 	void setName(string playerName);
 	Bank playerBank;
-	void takeTurn(map<int, Location*>& GameBoard, vector<Player*> players);
+	void takeTurn(vector<Location*>& GameBoard, vector<Player*> players);
 	void setCurrentLocation(int value);
 	void addProperty(Location* newTile);
 private:

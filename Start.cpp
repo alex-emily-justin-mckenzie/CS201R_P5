@@ -10,8 +10,8 @@
 #include "Location.h"
 using namespace std;
 
-map<int, Location*> loadBoard() {
-	map<int, Location*> board;
+vector<Location*> loadBoard() {
+	vector<Location*> board;
 	ifstream tileRead;
 	string tileName, tileType;
 	int tileNum;
@@ -82,7 +82,7 @@ map<int, Location*> loadBoard() {
 
 			Regular* currentTile = new Regular(name, rent, house1Rent, house2Rent, house3Rent, house4Rent, hotelRent, houseCost, group);
 
-			board.emplace(tileNum, currentTile);
+			board.push_back(currentTile);
 
 		}
 
@@ -100,7 +100,7 @@ map<int, Location*> loadBoard() {
 
 			Utility* currentTile = new Utility(name, price);
 
-			board.emplace(tileNum, currentTile);
+			board.push_back(currentTile);
 		}
 
 		else if (type == "Railroad") {
@@ -115,21 +115,21 @@ map<int, Location*> loadBoard() {
 
 			Railroad* newRailroad = new Railroad(name);
 
-			board.emplace(tileNum, newRailroad);
+			board.push_back(newRailroad);
 		}
 
 		else if (type == "Corner") {
 			Corner* currentTile = new Corner(name);
-			board.emplace(tileNum, currentTile);
+			board.push_back(currentTile);
 		}
 
-		else if (type == "ChanceCC") {
+		else if (type == "Chance/CC") {
 			ChanceCC* currentTile = new ChanceCC(name);
-			board.emplace(tileNum, currentTile);
+			board.push_back(currentTile);
 		}
 		else if (type == "Tax") {
 			Tax* currentTile = new Tax(name);
-			board.emplace(tileNum, currentTile);
+			board.push_back(currentTile);
 		}
 	}
 

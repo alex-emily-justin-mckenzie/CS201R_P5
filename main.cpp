@@ -12,8 +12,11 @@ int main() {
 	int numPlayers;
 	int turnNum = 0;
 	vector<Player*> players = initializePlayers(numPlayers, turnNum);
-	map<int, Location*> GameBoard = loadBoard();
+	vector<Location*> GameBoard = loadBoard();
 	
+	//for (int i = 0; i < GameBoard.size(); ++i) {
+	//	cout << i << " " << GameBoard.at(i)->getName() << endl;
+	//}
 	//for (auto& x:GameBoard) {
 	//	cout << x.first << " " << x.second->getName()<< endl;
 	//}
