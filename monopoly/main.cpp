@@ -1,5 +1,4 @@
 #include "Location.h"
-// #include "basePlayerHeader.h"
 #include "HelperFunctions.h"
 #include "Property.h"
 #include <sstream>
@@ -9,28 +8,40 @@
 #include <vector>
 #include <fstream>
 #include <queue>
+#include <ctime>
+#include "Player.h"
 using namespace std;
 /*
 Monopoly Rules:
-// How is the game actually supposed to end??
 
 */
 int main() {
 	vector<Location*> board;
-	queue<player*> players; 
-	player* currentPlayer;
-	// at the start of the player's turn you pop them out of the queue, then at the end of their turn you pop them back into the queue
+	queue<Player*> players; 
+	Player* currentPlayer;
 
 	players = initializePlayers();
-
 	board = loadBoard();
 
-	
-	// Check:
-	for (int i = 0; i < board.size(); ++i) {
-		cout << board.at(i)->getTileName() << endl;
+	srand(time(0));
+
+	//turn
+	while (!bankrupt(players, players.size())) { //run until only 1 player has bank $
+		currentPlayer = players.front();
+		players.pop();
+		cout << currentPlayer->getName() << "'s turn" << endl;
+		currentPlayer->checkBalance();
+		currentPlayer->takeTurn();
+
+		players.push(currentPlayer);
+
+		// turnNum += (turnNum == numPlayers - 1) ? (1 - numPlayers) : 1;
 	}
+	
 
 	return 0;
 }
+
+
+
 

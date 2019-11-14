@@ -39,11 +39,11 @@
     <ClCompile Include="CommunityChest.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
-    <ClCompile Include="basePlayer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Bank.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,10 +68,10 @@
     <ClInclude Include="CommunityChest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="basePlayerHeader.h">
+    <ClInclude Include="Bank.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Bank.h">
+    <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

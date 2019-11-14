@@ -1,5 +1,5 @@
 #include "HelperFunctions.h"
-#include "basePlayerHeader.h"
+#include "Player.h"
 #include <fstream>
 #include <string>
 #include <sstream>
@@ -139,19 +139,39 @@ vector<Location*> loadBoard() {
 
 // set up a queue of players, ask how many and their names, give them starting money
 
-queue<player*> initializePlayers() {
-	queue<player*> players;
+queue<Player*> initializePlayers() {
+	queue<Player*> players;
 	int numPlayers;
-	string tempName;
-	cout << "How many players?" << endl;
+	string playerName;
+	cout << "Welcome to Monopoly!" << endl;
+	cout << "How many players? (2-4): "; //add # verify
 	cin >> numPlayers;
 
+	cin.ignore();
+	cout << endl;
 	for (int i = 0; i < numPlayers; ++i) {
-		cout << "What is the name of Player " << i + 1 << endl;
-		cin >> tempName;
-		// Error handling here?
-		player* newPlayer = new player(tempName);
+		cout << "Enter Player " << i + 1 << "'s name: ";
+		getline(cin, playerName);
+		Player* newPlayer = new Player(playerName);
 		players.push(newPlayer); // will need to rethink if we want to order the queue based on initial dice roll
 	}
+	cout << endl;
+
 	return players;
+
 }
+
+bool bankrupt(queue<Player*> players, int numPlayers) {
+	int numBankrupt = 0;
+	for (unsigned int i = 0; i < players.size(); ++i) {
+		Player* currentPlayer = players.front();
+		players.pop();
+		if (currentPlayer->getPlayerMoney() == 0) {
+			numBankrupt += 1;
+		}
+		players.push(currentPlayer);
+	}
+	if (numBankrupt >= numPlayers - 1) { return true; }
+	else { return false; }
+}
+

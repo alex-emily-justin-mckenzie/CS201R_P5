@@ -5,9 +5,26 @@ using namespace std;
 
 Player::Player() {
 	name = "none";
+	money = 0;
+	inJail = false;
 }
+
+Player::Player(string name) {
+	this->name = name;
+	money = 500; // CHECK HOW MUCH THEY START WITH!
+	inJail = false;
+	// once we figure out how to do the special cards then we can update this to start them at collect 200 and go tile;
+}
+
 string Player::getName() const { return name; }
+
 void Player::setName(string playerName) { name = playerName; }
+
+void Player::checkBalance()
+{
+	cout << "Your current balance is: $" << money << endl << endl;
+}
+
 int Player::die_roll() {
 	int die_Value;
 	die_Value = (rand() % 6 + 1);//random number in range 1 to 6
