@@ -2,35 +2,25 @@
 #include <vector>
 #include <string>
 #include <ctime>
+#include <map>
 #include "Player.h"
+#include "Location.h"
+#include "Start.h"
 using namespace std;
 bool bankrupt(vector<Player> players, int numPlayers);
 int main() {
 	int numPlayers;
-	vector<Player> players;
-	Player currentPlayer;
-	string playerName;
 	int turnNum = 0;
-	srand(time(0));
-	cout << "Welcome to Monopoly!" << endl;
-	cout << "How many players? (2-4): "; //add # verify
-	cin >> numPlayers;
-	cin.ignore();
-	cout << endl;
-	for (unsigned int i = 0; i < numPlayers; ++i) {
-		cout << "Enter Player " << i + 1 << "'s name: ";
-		getline(cin, playerName);
-		currentPlayer.setName(playerName);
-		players.push_back(currentPlayer);
-	}
-	cout << endl;
+	vector<Player> players = initializePlayers(numPlayers, turnNum);
+	map<int, Location> GameBoard = loadBoard();
+	
 	//turn
-	while (!bankrupt(players, numPlayers)) { //run until only 1 player has bank $
+	while(!bankrupt(players, numPlayers)) { //run until only 1 player has bank $
 		cout << players.at(turnNum).getName() << "'s turn" << endl;
 		cout << players.at(turnNum).getName() << " balance: $ "
 			<< players.at(turnNum).playerBank.getBalance() << endl;
 
-		players.at(turnNum).takeTurn();
+		players.at(turnNum).takeTurn(GameBoard);
 		
 		turnNum += (turnNum == numPlayers - 1) ? (1 - numPlayers) : 1;
 	}

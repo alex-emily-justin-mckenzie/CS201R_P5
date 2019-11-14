@@ -1,40 +1,40 @@
-1	Go
-2	Mediterranean Ave.
-3	Community Chest
-4	Baltic Ave.
-5	Income Tax
-6	Reading Railroad
-7	Oriental Ave.
-8	Chance
-9	Vermont Ave.
-10	Connecticut Ave.
-11	In Jail/Just Visiting
-12	St. Charles Place
-13	Electric Company
-14	States Ave.
-15	Virginia Ave.
-16	Pennsylvania Railroad
-17	St. James Place
-18	Community Chest
-19	Tennessee Ave.
-20	New York Ave.
-21	Free Parking
-22	Kentucky Ave.
-23	Chance
-24	Indiana Ave.
-25	Illinois Ave.
-26	B. & O. Railroad
-27	Atlantic Ave.
-28	Ventnor Ave.
-29	Water Works
-30	Marvin Gardens
-31	Go To Jail
-32	Pacific Ave.
-33	North Carolina Ave.
-34	Community Chest
-35	Pennsylvania Ave.
-36	Short Line Railroad
-37	Chance
-38	Park Place
-39	Luxury Tax
-40	Boardwalk
+1	Go	Corner
+2	Mediterranean Ave.	Regular
+3	Community Chest	Chance/CC
+4	Baltic Ave.	Regular
+5	Income Tax	Tax
+6	Reading Railroad	Railroad
+7	Oriental Ave.	Regular
+8	Chance	Chance/CC
+9	Vermont Ave.	Regular
+10	Connecticut Ave.	Regular
+11	In Jail/Just Visiting	Corner
+12	St. Charles Place	Regular
+13	Electric Company	Utility
+14	States Ave.	Regular
+15	Virginia Ave.	Regular
+16	Pennsylvania Railroad	Railroad
+17	St. James Place	Regular
+18	Community Chest	Chance/CC
+19	Tennessee Ave.	Regular
+20	New York Ave.	Regular
+21	Free Parking	Corner
+22	Kentucky Ave.	Regular
+23	Chance	Chance/CC
+24	Indiana Ave.	Regular
+25	Illinois Ave.	Regular
+26	B. & O. Railroad	Railroad
+27	Atlantic Ave.	Regular
+28	Ventnor Ave.	Regular
+29	Water Works	Utility
+30	Marvin Gardens	Regular
+31	Go To Jail	Corner
+32	Pacific Ave.	Regular
+33	North Carolina Ave.	Regular
+34	Community Chest	Chance/CC
+35	Pennsylvania Ave.	Regular
+36	Short Line Railroad	Railroad
+37	Chance	Chance/CC
+38	Park Place	Regular
+39	Luxury Tax	Tax
+40	Boardwalk	Regular
